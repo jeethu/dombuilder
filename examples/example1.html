@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>DOMBuilder example</title>
+</head>
+<body>
+    <h1>DOMBuilder example</h1>
+    <form>
+        <label fore="id_name">Enter name</label>
+        <input type="text" id="id_name">
+        <input type="button" id="id_ok" value="ok">
+    </form>
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.7.0/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+<script type="text/javascript" src="../utils.js"></script>
+<script type="text/javascript" src="../dombuilder.js"></script>
+<script type="text/javascript">
+(function() {
+ var Event = YAHOO.util.Event, DOM = YAHOO.util.Dom, DB = YAHOO.tagz.DomBuilder;
+ YAHOO.util.Event.onDOMReady(function() {
+     Event.on('id_ok','click',function(e) {
+         var s = YAHOO.lang.trim(DOM.get('id_name').value);
+         if(s) {
+             DOM.insertBefore(
+                 DB.DIV({style:{margin:'2px'}},
+                     DB.SPAN(
+                         {style:{color:'white','background-color':'#aa0011',padding:'2px'}},
+                         'You entered: '+s)), 
+                 DOM.getFirstChild(document.body));
+         }
+     });
+ });
+})();
+</script>
+</body>
+</html>

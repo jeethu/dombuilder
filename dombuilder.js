@@ -25,7 +25,7 @@
             return document.createTextNode(child);
         } else if(lang.isFunction(child)) {
             return arguments.callee.call(this,child.call(this));
-        } else if(child instanceof Element) {
+        } else if(Element && child instanceof Element) {
             var el = child.get('element');
             if(el) {
                 return el;
