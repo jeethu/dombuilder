@@ -16,7 +16,7 @@
 <script type="text/javascript">
 (function() {
  var Event = YAHOO.util.Event, DOM = YAHOO.util.Dom, DB = YAHOO.tagz.DomBuilder;
- YAHOO.util.Event.onDOMReady(function() {
+ Event.onDOMReady(function() {
      Event.on('id_ok','click',function(e) {
          var s = YAHOO.lang.trim(DOM.get('id_name').value);
          if(s) {
